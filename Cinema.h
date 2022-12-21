@@ -2,61 +2,62 @@
 #include <iostream>
 #include <string>
 using namespace std;
+#define NUMBER_OF_SYMBOLS_IN_ARRAY 4
 
 class Cinema
 {
 public:
-	string name;
-	string location;
+  string name;
+  string location;
 
-	string getName()
-	{
-		return name;
-	}
+  string getName()
+  {
+    return name;
+  }
 
-	string getLocation()
-	{
-		return location;
-	}
+  string getLocation()
+  {
+    return location;
+  }
 
-	Cinema(string aLocation, string aName)
-	{
-		location = aLocation;
-		name = aName;
-	}
+  Cinema(string kCinemaLocation, string kCinemaName)
+  {
+    location = kCinemaLocation;
+    name = kCinemaName;
+  }
 
-	Cinema() {};
+  Cinema() {};
 
-	void Print()
-	{
-		cout << "Location: " << location << "Name: " << name << endl;
-	}
+  void Print()
+  {
+    cout << "Location: " << location << "Name: " << name << endl;
+  }
 
-	Movie arr[100];
-	Movie arr_sort[1];
-	int movies = 0;
+  Movie arr[NUMBER_OF_SYMBOLS_IN_ARRAY];
+  Movie arr_sort[1];
+  int movies = 0;
 
-	void AddMovie(Movie movie)
-	{
-		arr[movies] = movie;
-		movies++;
-	}
+  void AddMovie(Movie movie)
+  {
+    arr[movies] = movie;
+    movies++;
+  }
 
-	void SortingByYear()
-	{
-		for (int i = 0; i < movies; i++)
-		{
-			for (int j = 0; j < movies; j++)
-				if (arr[j].release_date < arr[j + 1].release_date)
-				{
-					arr_sort[0] = arr[j + 1];
-					arr[j + 1] = arr[j];
-					arr[j] = arr_sort[0];
-				}
-		}
-		for (int k = 0; k < movies; k++)
-		{
-			arr[k].Print();
-		}
-	}
+  void SortingByYear()
+  {
+    for (int i = 0; i < movies; i++)
+    {
+      for (int j = 0; j < movies; j++)
+        if (arr[j].release_date < arr[j + 1].release_date)
+        {
+          arr_sort[0] = arr[j + 1];
+          arr[j + 1] = arr[j];
+          arr[j] = arr_sort[0];
+        }
+    }
+    for (int k = 0; k < movies; k++)
+    {
+      arr[k].Print();
+    }
+  }
 };
